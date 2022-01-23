@@ -1,4 +1,4 @@
-# Welcome to Remix!
+# Welcome to Elrond NFT Augment
 
 - [Remix Docs](https://remix.run/docs)
 
