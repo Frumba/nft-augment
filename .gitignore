@@ -16,3 +16,5 @@ api/_build
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+app/tailwind.css

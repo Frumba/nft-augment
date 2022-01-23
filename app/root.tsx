@@ -1,12 +1,17 @@
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
-import type { MetaFunction } from 'remix';
 import { QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import type { MetaFunction } from 'remix';
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
 import { queryClient } from '~/queryClient';
+import styles from './tailwind.css';
 
 export const meta: MetaFunction = () => {
   return { title: 'Elrond NFT Augment' };
 };
+
+export function links() {
+  return [{ rel: 'stylesheet', href: styles }];
+}
 
 export default function App() {
   return (
