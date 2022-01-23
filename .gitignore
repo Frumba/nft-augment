@@ -6,3 +6,13 @@ node_modules
 
 public/build
 api/_build
+
+.vscode
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
