@@ -1,6 +1,11 @@
 declare module 'elrond/nft' {
   import { FileType } from '~/typings/enums/elrond';
 
+  export interface INftGroup {
+    title: string;
+    nfts: INft[];
+  }
+
   export interface INft {
     identifier: string;
     collection: string;
