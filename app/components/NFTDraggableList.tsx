@@ -23,15 +23,15 @@ const NFTDraggableList = ({ className }: IProps) => {
   const { nftGroups } = useSession();
 
   return (
-    <Accordion className={className} allowMultipleExpanded allowZeroExpanded>
+    <Accordion className={`${className} flex flex-col gap-1`} allowMultipleExpanded allowZeroExpanded>
       {nftGroups.map((nftGroup) => {
         return (
           <AccordionItem key={nftGroup.title}>
-            <AccordionItemHeading>
-              <AccordionItemButtonStyled className="p-4 bg-blue-300">{nftGroup.title}</AccordionItemButtonStyled>
+            <AccordionItemHeading className="rounded text-gray-700 bg-white font-bold">
+              <AccordionItemButtonStyled className='p-4'>{nftGroup.title}</AccordionItemButtonStyled>
             </AccordionItemHeading>
             <AccordionItemPanel>
-              <div className="my-4 flex flex-col gap-4">
+              <div className="mt-1 flex flex-col gap-1">
                 {nftGroup.nfts.map((nft) => {
                   return (
                     <NftView

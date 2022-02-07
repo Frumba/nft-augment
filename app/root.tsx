@@ -5,6 +5,7 @@ import resizableStyles from 'react-resizable/css/styles.css';
 import type { MetaFunction } from 'remix';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from 'remix';
 import { queryClient } from '~/queryClient';
+import { GlobalStyle } from '~/theme/global';
 import tailwindStyles from './tailwind.css';
 
 export const meta: MetaFunction = () => {
@@ -21,15 +22,20 @@ export function links() {
 
 export default function App() {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full bg-slate-800">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&display=swap"
+          rel="stylesheet"
+        />
         <Meta />
         <Links />
         {typeof document === 'undefined' ? '__STYLES__' : null}
       </head>
       <body className="h-full">
+        <GlobalStyle />
         <QueryClientProvider client={queryClient}>
           <Outlet />
           <ReactQueryDevtools position="bottom-right" />

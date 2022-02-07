@@ -3,7 +3,7 @@ import { useSession } from '~/hooks/store/sessions';
 import { getElementInParam } from '~/utils/url';
 
 const ErdInput = () => {
-  const { setAddressId } = useSession();
+  const { addressId, setAddressId } = useSession();
 
   useEffect(() => {
     const addressId = getElementInParam('addressId');
@@ -28,6 +28,7 @@ const ErdInput = () => {
       }}
     >
       <input
+        defaultValue={addressId ?? undefined}
         placeholder="ERD Address"
         className="w-full md:w-[300px] mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block rounded-md sm:text-sm focus:ring-1"
         type="text"
@@ -35,7 +36,7 @@ const ErdInput = () => {
         name="addressId"
         required
       />
-      <input className="p-2 rounded bg-blue-400 text-white cursor-pointer" type="submit" value="Send" />
+      <input className="p-4 rounded bg-blue-400 text-white cursor-pointer" type="submit" value="Send" />
     </form>
   );
 };
