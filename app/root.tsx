@@ -27,6 +27,7 @@ export default function App() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link
+          crossOrigin="anonymous"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,900&display=swap"
           rel="stylesheet"
         />

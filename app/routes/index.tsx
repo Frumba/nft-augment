@@ -1,7 +1,9 @@
-import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
+import { faCamera, faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { INft } from 'elrond/nft';
+import { useRef } from 'react';
 import styled from 'styled-components';
+import { useScreenshot } from 'use-react-screenshot';
 import GridLayout from '~/components/common/GridLayout';
 import NftView from '~/components/common/NftView';
 import ErdInput from '~/components/ErdInput';
@@ -16,14 +18,37 @@ const TitleContainer = styled.span`
 `;
 
 export default function Index() {
+  const ref = useRef<HTMLDivElement>(null);
   const { isInit } = useSession();
   useInitApp();
+
+  const [image, takeScreenshot] = useScreenshot();
+  const getImage = async () => {
+    const dataUrl = await takeScreenshot(ref.current);
+
+    const link = document.createElement('a');
+    link.download = 'my-image-name.png';
+    link.href = dataUrl;
+    link.click();
+  };
+
+  console.timeLog(image);
 
   return (
     <div className="h-full p-4 flex flex-col gap-4">
       <div className="flex justify-between">
-        <div className="p-4 bg-white rounded">
-          <TitleContainer className="flex items-center font-bold">NFT Augment</TitleContainer>
+        <div className="flex gap-4">
+          <div className="p-4 bg-white rounded">
+            <TitleContainer className="flex items-center font-bold">NFT Augment</TitleContainer>
+          </div>
+          <div
+            className="cursor-pointer px-5 py-3 bg-white rounded-full flex items-center justify-center"
+            onClick={async () => {
+              getImage();
+            }}
+          >
+            <FontAwesomeIcon className="text-gray-600" icon={faCamera} />
+          </div>
         </div>
         <ErdInput />
       </div>
@@ -34,7 +59,9 @@ export default function Index() {
           <div className="w-1/5 h-full relative">
             <NFTDraggableList className="overflow-y-auto absolute inset-0" />
           </div>
-          <GridLayout<INft> className="w-4/5" itemToRender={(nft) => <NftView nft={nft} />} />
+          <div className="flex w-4/5" ref={ref}>
+            <GridLayout<INft> className="flex-1" itemToRender={(nft) => <NftView nft={nft} />} />
+          </div>
         </div>
       )}
       <div className="md:hidden">{`Not usable on a mobile device sorry ;)`}</div>
