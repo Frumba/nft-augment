@@ -1960,7 +1960,6 @@ __metadata:
     styled-components: ^5.3.3
     tailwindcss: ^3.0.15
     typescript: ^4.1.2
-    use-react-screenshot: ^3.0.0
     zustand: ^3.6.9
   languageName: unknown
   linkType: soft
@@ -6327,16 +6326,6 @@ __metadata:
   dependencies:
     punycode: ^2.1.0
   checksum: 7167432de6817fe8e9e0c9684f1d2de2bb688c94388f7569f7dbdb1587c9f4ca2a77962f134ec90be0cc4d004c939ff0d05acc9f34a0db39a3c797dada262633
-  languageName: node
-  linkType: hard
-
-"use-react-screenshot@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "use-react-screenshot@npm:3.0.0"
-  peerDependencies:
-    html2canvas: ^1.3.3
-    react: ^17.0.2
-  checksum: 7a562cec3d611cb357246fb5913f1e753f847956b3c9c6f9a3ca3ac14a9caf715593db17452e09d6e579107bf295c9e743eea7d2589b9916ccc9c7495f1dda7e
   languageName: node
   linkType: hard
 
